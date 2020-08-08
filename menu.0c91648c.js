@@ -128,10 +128,6 @@ parcelRequire = (function (modules, cache, entry, globalName) {
     mobileIconRef.classList.add('icon-size');
     menuBtnRef.setAttribute('aria-expanded', !expanded);
     mobileMenuRef.classList.toggle('is-open');
-
-    if (menuBtnRef.getAttribute('aria-expanded') === 'false') {
-      mobileIconRef.classList.remove('icon-size');
-    }
   });
 })();
 },{}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
@@ -162,7 +158,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51175" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59027" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
