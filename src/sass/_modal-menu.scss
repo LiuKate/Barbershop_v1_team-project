@@ -16,7 +16,7 @@
   position: absolute;
   right: 30px;
   top: 48px;
-  z-index: 10;
+  z-index: 12;
   @media screen and (min-width: $tablet), (orientation: landscape) {
     display: none;
   }
@@ -76,6 +76,7 @@
   right: 0;
   width: 337px;
   height: 630px;
+  z-index: 11;
   background-color: $main_white;
   -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.16),
     0px 2px 4px rgba(0, 0, 0, 0.08), 0px 4px 8px rgba(0, 0, 0, 0.04);
