@@ -935,7 +935,7 @@ img {
   position: absolute;
   right: 30px;
   top: 48px;
-  z-index: 10;
+  z-index: 12;
 }
 @media screen and (min-width: 768px), (orientation: landscape) {
   .menu-button {
@@ -1000,6 +1000,7 @@ img {
   right: 0;
   width: 337px;
   height: 630px;
+  z-index: 11;
   background-color: #ffffff;
   -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.16), 0px 2px 4px rgba(0, 0, 0, 0.08), 0px 4px 8px rgba(0, 0, 0, 0.04);
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.16), 0px 2px 4px rgba(0, 0, 0, 0.08), 0px 4px 8px rgba(0, 0, 0, 0.04);
@@ -1750,6 +1751,9 @@ img {
   align-items: center;
 }
 
+.footer--flex-parants {
+  background-color: #191c26;
+}
 @media screen and (min-width: 1280px) {
   .footer--flex-parants {
     display: grid;
@@ -1762,6 +1766,8 @@ img {
 @media screen and (min-width: 1280px) {
   .online-booking {
     grid-area: onlineBooking;
+    width: 625px;
+    margin-left: auto;
   }
 }
 
@@ -1780,7 +1786,6 @@ img {
 .online-booking {
   padding-top: 84px;
   padding-bottom: 84px;
-  background-color: #191c26;
 }
 @media screen and (min-width: 768px), (orientation: landscape) {
   .online-booking {
@@ -1843,8 +1848,9 @@ img {
   text-align: center;
   letter-spacing: 0.09em;
   text-transform: uppercase;
-  color: #ffffff;
+  cursor: pointer;
   transition: color 500ms cubic-bezier(0.4, 0, 0.2, 1), background 500ms cubic-bezier(0.4, 0, 0.2, 1), fill 500ms cubic-bezier(0.4, 0, 0.2, 1);
+  color: #ffffff;
 }
 .online-booking__button:hover, .online-booking__button:focus {
   background-color: #ff6c00;
@@ -2056,9 +2062,20 @@ img {
   color: #ff6c00;
 }
 
+.footer-copyright-container {
+  position: relative;
+}
+
 .footer-social-link__copyright {
   color: #9da4bd;
   margin-top: 20px;
+}
+@media screen and (min-width: 768px) {
+  .footer-social-link__copyright {
+    margin-top: 0px;
+    position: absolute;
+    top: 0;
+  }
 }
 
 .footer-social-link__teg {
