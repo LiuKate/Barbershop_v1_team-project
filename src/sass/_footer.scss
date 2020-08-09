@@ -108,6 +108,7 @@
   letter-spacing: 0.09em;
   text-transform: uppercase;
   cursor: pointer;
+  transition: $transition;
   color: $main_white;
   &:hover,
   &:focus {
