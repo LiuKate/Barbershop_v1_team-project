@@ -92,9 +92,14 @@
 }
 
 .online-booking__button {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 12px 38px;
+
   border: 1px solid $hover_color;
   border-radius: 20px;
-  background: transparent;
+  background-color: transparent;
 
   font-weight: 600;
   font-size: 12px;
@@ -104,15 +109,15 @@
   text-transform: uppercase;
   cursor: pointer;
   color: $main_white;
-  transition: $transition;
   &:hover,
   &:focus {
-    background: $hover_color;
+    background-color: $hover_color;
   }
   @media screen and (min-width: 768px), (orientation: landscape) {
     margin-left: 0;
     margin-right: 0;
   }
+}
 
 %style-input {
   width: 100%;
