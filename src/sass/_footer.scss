@@ -20,6 +20,7 @@
 
 // адаптивка для пк
 .footer--flex-parants {
+  background-color: #191c26;
   @media screen and (min-width: 1280px) {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -32,6 +33,8 @@
 .online-booking {
   @media screen and (min-width: 1280px) {
     grid-area: onlineBooking;
+    width: 625px;
+    margin-left: auto;
   }
 }
 .contacts {
@@ -49,7 +52,6 @@
   padding-top: 84px;
   padding-bottom: 84px;
 
-  background-color: #191c26;
   @media screen and (min-width: 768px), (orientation: landscape) {
     padding-top: 100px;
     padding-bottom: 100px;
@@ -105,6 +107,7 @@
   text-align: center;
   letter-spacing: 0.09em;
   text-transform: uppercase;
+  cursor: pointer;
   color: $main_white;
   &:hover,
   &:focus {
@@ -330,10 +333,18 @@
     color: $hover_color;
   }
 }
+.footer-copyright-container {
+  position: relative;
+}
 .footer-social-link__copyright {
   @extend %footer-social-link--decoration-text;
   color: $main_gray;
   margin-top: 20px;
+  @media screen and (min-width: $tablet) {
+    margin-top: 0px;
+    position: absolute;
+    top: 0;
+  }
 }
 .footer-social-link__teg {
   font-size: 14px;
