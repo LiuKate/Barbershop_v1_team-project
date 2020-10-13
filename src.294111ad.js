@@ -3,4 +3,4 @@ parcelRequire=function(e,r,t,n){var i,o="function"==typeof parcelRequire&&parcel
 },{"./..\\images\\services_bg@1x.jpg":[["services_bg@1x.ca642a64.jpg","Ug0R"],"Ug0R"],"./..\\images\\services_bg@2x.jpg":[["services_bg@2x.80d321bf.jpg","kHW0"],"kHW0"],"./..\\images\\footer_bg@1x.jpg":[["footer_bg@1x.8d4bdad1.jpg","qazZ"],"qazZ"],"./..\\images\\footer_bg@2x.jpg":[["footer_bg@2x.7753de27.jpg","NLww"],"NLww"]}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss");
 },{"./sass/main.scss":"clu1"}]},{},["Focm"], null)
-//# sourceMappingURL=/Barbershop_v1_team-project/src.12c90116.js.map
+//# sourceMappingURL=/Barbershop_team-project/src.294111ad.js.map
