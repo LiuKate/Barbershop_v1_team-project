@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "homepage": "https://titoffroma.github.io/Barbershop_v1_team-project",
+  "homepage": "https://eastukan.github.io/Barbershop_team-project/",
   "scripts": {
     "dev": "parcel src/*.html",
     "build": "parcel build src/*.html",
-    "predeploy": "npm run build -- --public-url=/Barbershop_v1_team-project/",
+    "predeploy": "npm run build -- --public-url=/Barbershop_team-project/",
     "deploy": "gh-pages -d dist"
   },
   "repository": {
