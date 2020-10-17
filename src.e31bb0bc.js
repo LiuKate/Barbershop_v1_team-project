@@ -189,11 +189,226 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"./..\\images\\services_bg@1x.jpg":[["services_bg@1x.8e734021.jpg","images/services_bg@1x.jpg"],"images/services_bg@1x.jpg"],"./..\\images\\services_bg@2x.jpg":[["services_bg@2x.f9437712.jpg","images/services_bg@2x.jpg"],"images/services_bg@2x.jpg"],"./..\\images\\footer_bg@1x.jpg":[["footer_bg@1x.d392e580.jpg","images/footer_bg@1x.jpg"],"images/footer_bg@1x.jpg"],"./..\\images\\footer_bg@2x.jpg":[["footer_bg@2x.91b8c713.jpg","images/footer_bg@2x.jpg"],"images/footer_bg@2x.jpg"],"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"index.js":[function(require,module,exports) {
+},{"./..\\images\\icon-close.svg":[["icon-close.1add023a.svg","images/icon-close.svg"],"images/icon-close.svg"],"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"js/gallery-items.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _default = [{
+  preview: "https://cdn.pixabay.com/photo/2019/05/14/16/43/himilayan-blue-poppy-4202825__340.jpg",
+  original: "https://cdn.pixabay.com/photo/2019/05/14/16/43/himilayan-blue-poppy-4202825_1280.jpg",
+  description: "Hokkaido Flower"
+}, {
+  preview: "https://cdn.pixabay.com/photo/2019/05/14/22/05/container-4203677__340.jpg",
+  original: "https://cdn.pixabay.com/photo/2019/05/14/22/05/container-4203677_1280.jpg",
+  description: "Container Haulage Freight"
+}, {
+  preview: "https://cdn.pixabay.com/photo/2019/05/16/09/47/beach-4206785__340.jpg",
+  original: "https://cdn.pixabay.com/photo/2019/05/16/09/47/beach-4206785_1280.jpg",
+  description: "Aerial Beach View"
+}, {
+  preview: "https://cdn.pixabay.com/photo/2016/11/18/16/19/flowers-1835619__340.jpg",
+  original: "https://cdn.pixabay.com/photo/2016/11/18/16/19/flowers-1835619_1280.jpg",
+  description: "Flower Blooms"
+}, {
+  preview: "https://cdn.pixabay.com/photo/2018/09/13/10/36/mountains-3674334__340.jpg",
+  original: "https://cdn.pixabay.com/photo/2018/09/13/10/36/mountains-3674334_1280.jpg",
+  description: "Alpine Mountains"
+}, {
+  preview: "https://cdn.pixabay.com/photo/2019/05/16/23/04/landscape-4208571__340.jpg",
+  original: "https://cdn.pixabay.com/photo/2019/05/16/23/04/landscape-4208571_1280.jpg",
+  description: "Mountain Lake Sailing"
+}, {
+  preview: "https://cdn.pixabay.com/photo/2019/05/17/09/27/the-alps-4209272__340.jpg",
+  original: "https://cdn.pixabay.com/photo/2019/05/17/09/27/the-alps-4209272_1280.jpg",
+  description: "Alpine Spring Meadows"
+}, {
+  preview: "https://cdn.pixabay.com/photo/2019/05/16/21/10/landscape-4208255__340.jpg",
+  original: "https://cdn.pixabay.com/photo/2019/05/16/21/10/landscape-4208255_1280.jpg",
+  description: "Nature Landscape"
+}, {
+  preview: "https://cdn.pixabay.com/photo/2019/05/17/04/35/lighthouse-4208843__340.jpg",
+  original: "https://cdn.pixabay.com/photo/2019/05/17/04/35/lighthouse-4208843_1280.jpg",
+  description: "Lighthouse Coast Sea"
+}];
+exports.default = _default;
+},{}],"js/task-1-class-done.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _galleryItems = _interopRequireDefault(require("./gallery-items"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var smartGallery = /*#__PURE__*/function () {
+  function smartGallery(params) {
+    var imagesArray = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : _galleryItems.default;
+
+    _classCallCheck(this, smartGallery);
+
+    this.galleryRef = params.galleryRef;
+    this.buttonRef = params.buttonRef;
+    this.modalRef = params.modalRef;
+    this.modalImageRef = params.modalImageRef;
+    this.closeButtonRef = params.closeButtonRef;
+    this.imagesArray = imagesArray;
+
+    smartGallery.prototype.operateLightbox = function (event) {
+      console.log(event.code);
+
+      if (event.code === "Escape") {
+        this.closeLightbox();
+      }
+
+      if (event.code === "ArrowRight") {
+        this.moveRightLightbox();
+      }
+
+      if (event.code === "ArrowLeft") {
+        this.moveLeftLightbox();
+      }
+    }.bind(this);
+  }
+
+  _createClass(smartGallery, [{
+    key: "addImages",
+    value: function addImages() {
+      var imagesString = this.imagesArray.reduce(function (acc, _ref) {
+        var preview = _ref.preview,
+            original = _ref.original,
+            description = _ref.description;
+        var oneImageString = "<li class=\"gallery__item\">\n  <a\n    class=\"gallery__link\"\n    href=\"".concat(original, "\"\n  >\n    <img\n      class=\"gallery__image\"\n      src=\"").concat(preview, "\"\n      data-source=\"").concat(original, "\"\n      alt=\"").concat(description, "\"\n    />\n  </a>\n</li>");
+        return acc += oneImageString;
+      }, "");
+      this.galleryRef.insertAdjacentHTML("beforeend", imagesString);
+    }
+  }, {
+    key: "openGallery",
+    value: function openGallery(event) {
+      if (this.galleryRef.children.length === 0) {
+        this.addImages();
+        event.target.textContent = "Close Gallery";
+        this.galleryRef.addEventListener("click", this.openLightbox.bind(this));
+      } else {
+        this.galleryRef.classList.toggle("is-hidden");
+
+        if (event.target.textContent === "Close Gallery") {
+          event.target.textContent = "Open Gallery";
+        } else {
+          event.target.textContent = "Close Gallery";
+        }
+      }
+    }
+  }, {
+    key: "addDocListener",
+    value: function addDocListener() {
+      this.galleryRef.addEventListener("keydown", this.operateLightbox);
+    }
+  }, {
+    key: "removeDocListener",
+    value: function removeDocListener() {
+      this.galleryRef.removeEventListener("keydown", this.operateLightbox);
+    }
+  }, {
+    key: "openLightbox",
+    value: function openLightbox(event) {
+      event.preventDefault();
+      if (event.target.tagName !== "IMG") return;
+      this.addDocListener();
+      this.modalRef.classList.add("is-open");
+      document.body.style.overflow = "hidden";
+      this.modalImageRef.src = event.target.dataset.source;
+      this.modalImageRef.alt = event.target.alt;
+      this.currentIndex = Array.from(document.querySelectorAll(".gallery__image")).indexOf(event.target);
+      this.closeButtonRef.addEventListener("click", this.closeLightbox.bind(this), {
+        once: true
+      });
+    }
+  }, {
+    key: "moveImages",
+    value: function moveImages() {
+      var _this = this;
+
+      this.modalImageRef.classList.add("scale");
+      this.modalImageRef.src = this.imagesArray[this.currentIndex].original;
+      this.modalImageRef.alt = this.imagesArray[this.currentIndex].description;
+      setTimeout(function () {
+        return _this.modalImageRef.classList.remove("scale");
+      }, 200);
+    }
+  }, {
+    key: "moveRightLightbox",
+    value: function moveRightLightbox() {
+      if (this.currentIndex === this.imagesArray.length - 1) {
+        this.currentIndex = -1;
+      }
+
+      this.currentIndex += 1;
+      this.moveImages();
+    }
+  }, {
+    key: "moveLeftLightbox",
+    value: function moveLeftLightbox() {
+      if (this.currentIndex === 0) {
+        this.currentIndex = this.imagesArray.length;
+      }
+
+      this.currentIndex -= 1;
+      this.moveImages();
+    }
+  }, {
+    key: "closeLightbox",
+    value: function closeLightbox() {
+      var _this2 = this;
+
+      this.modalRef.classList.remove("is-open");
+      setTimeout(function () {
+        return _this2.modalImageRef.src = "";
+      }, 200);
+      document.body.style.overflow = "auto";
+      this.removeDocListener();
+    }
+  }]);
+
+  return smartGallery;
+}();
+
+exports.default = smartGallery;
+},{"./gallery-items":"js/gallery-items.js"}],"js/main.js":[function(require,module,exports) {
+"use strict";
+
+var _task1ClassDone = _interopRequireDefault(require("./task-1-class-done"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var initialParams = {
+  galleryRef: document.querySelector(".gallery"),
+  buttonRef: document.querySelector(".open-btn"),
+  modalRef: document.querySelector(".lightbox"),
+  modalImageRef: document.querySelector(".lightbox__image"),
+  closeButtonRef: document.querySelector(".lightbox__button")
+};
+var myGallery = new _task1ClassDone.default(initialParams);
+myGallery.buttonRef.addEventListener("click", myGallery.openGallery.bind(myGallery));
+},{"./task-1-class-done":"js/task-1-class-done.js"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 require("./sass/main.scss");
-},{"./sass/main.scss":"sass/main.scss"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+
+require("./js/main.js");
+},{"./sass/main.scss":"sass/main.scss","./js/main.js":"js/main.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -221,7 +436,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "2659" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56861" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
