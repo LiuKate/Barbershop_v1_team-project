@@ -117,83 +117,87 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"../node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
-var bundleURL = null;
+})({"js/slider-animation.js":[function(require,module,exports) {
+var slideIndex = 0;
+var nextBtn = document.querySelector('[next-btn]');
+var prevBtn = document.querySelector('[prev-btn]');
+var slider1 = document.querySelector('[slider1]');
+var slider2 = document.querySelector('[slider2]');
+var slider3 = document.querySelector('[slider3]');
+nextBtn.addEventListener('click', function () {
+  plusSlides(1);
+});
+prevBtn.addEventListener('click', function () {
+  plusSlides(-1);
+});
+showSlidesAuto();
 
-function getBundleURLCached() {
-  if (!bundleURL) {
-    bundleURL = getBundleURL();
+function showSlidesAuto() {
+  var i;
+  var slides = document.getElementsByClassName('mySlides');
+
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = 'none';
   }
 
-  return bundleURL;
-}
+  slideIndex++;
 
-function getBundleURL() {
-  // Attempt to find the URL of the current script and use that as the base URL
-  try {
-    throw new Error();
-  } catch (err) {
-    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
-
-    if (matches) {
-      return getBaseURL(matches[0]);
-    }
+  if (slideIndex > slides.length) {
+    slideIndex = 1;
   }
 
-  return '/';
+  slides[slideIndex - 1].style.display = 'block';
+  setTimeout(showSlidesAuto, 10000); // Change image every n seconds
+
+  setSlider();
+} // Next/previous controls
+
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+} // Thumbnail image controls
+
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
 }
 
-function getBaseURL(url) {
-  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)\/[^/]+$/, '$1') + '/';
-}
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName('mySlides');
 
-exports.getBundleURL = getBundleURLCached;
-exports.getBaseURL = getBaseURL;
-},{}],"../node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
-var bundle = require('./bundle-url');
-
-function updateLink(link) {
-  var newLink = link.cloneNode();
-
-  newLink.onload = function () {
-    link.remove();
-  };
-
-  newLink.href = link.href.split('?')[0] + '?' + Date.now();
-  link.parentNode.insertBefore(newLink, link.nextSibling);
-}
-
-var cssTimeout = null;
-
-function reloadCSS() {
-  if (cssTimeout) {
-    return;
+  if (n > slides.length) {
+    slideIndex = 1;
   }
 
-  cssTimeout = setTimeout(function () {
-    var links = document.querySelectorAll('link[rel="stylesheet"]');
+  if (n < 1) {
+    slideIndex = slides.length;
+  }
 
-    for (var i = 0; i < links.length; i++) {
-      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
-        updateLink(links[i]);
-      }
-    }
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = 'none';
+  }
 
-    cssTimeout = null;
-  }, 50);
+  slides[slideIndex - 1].style.display = 'block';
+  setSlider();
 }
 
-module.exports = reloadCSS;
-},{"./bundle-url":"../node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"sass/main.scss":[function(require,module,exports) {
-var reloadCSS = require('_css_loader');
-
-module.hot.dispose(reloadCSS);
-module.hot.accept(reloadCSS);
-},{"./..\\images\\services_bg@1x.jpg":[["services_bg@1x.8e734021.jpg","images/services_bg@1x.jpg"],"images/services_bg@1x.jpg"],"./..\\images\\services_bg@2x.jpg":[["services_bg@2x.f9437712.jpg","images/services_bg@2x.jpg"],"images/services_bg@2x.jpg"],"./..\\images\\footer_bg@1x.jpg":[["footer_bg@1x.d392e580.jpg","images/footer_bg@1x.jpg"],"images/footer_bg@1x.jpg"],"./..\\images\\footer_bg@2x.jpg":[["footer_bg@2x.91b8c713.jpg","images/footer_bg@2x.jpg"],"images/footer_bg@2x.jpg"],"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"index.js":[function(require,module,exports) {
-"use strict";
-
-require("./sass/main.scss");
-},{"./sass/main.scss":"sass/main.scss"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+function setSlider() {
+  if (slideIndex == 1) {
+    slider1.classList.add('header-line-accent');
+    slider2.classList.remove('header-line-accent');
+    slider3.classList.remove('header-line-accent');
+  } else if (slideIndex == 2) {
+    slider1.classList.remove('header-line-accent');
+    slider2.classList.add('header-line-accent');
+    slider3.classList.remove('header-line-accent');
+  } else if (slideIndex == 3) {
+    slider1.classList.remove('header-line-accent');
+    slider2.classList.remove('header-line-accent');
+    slider3.classList.add('header-line-accent');
+  }
+}
+},{}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -397,5 +401,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","index.js"], null)
-//# sourceMappingURL=/src.e31bb0bc.js.map
+},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","js/slider-animation.js"], null)
+//# sourceMappingURL=/slider-animation.61cfc567.js.map
